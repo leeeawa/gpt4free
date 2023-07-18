@@ -1,7 +1,6 @@
 pycryptodome
 curl_cffi
 aiohttp
-asyncio
 certifi
 Providers
 browser_cookie3
