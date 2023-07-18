@@ -116,7 +116,6 @@ def models():
   import g4f.models
   model = {"data":[]}
   for i in g4f.models.ModelUtils.convert:
-    print(i)
     model['data'].append({
             "id": i,
             "object": "model",
@@ -130,6 +129,27 @@ def models():
             "permission": []
         })
   return jsonify(model)
+
+@app.route("/v1/providers")
+@app.route("/providers")
+def providers():
+  files = os.listdir("g4f/Provider/Providers")
+  files = [f for f in files if os.path.isfile(os.path.join("g4f/Provider/Providers", f))]
+  files.sort(key=str.lower)
+  providers = {"data":[]}
+  for file in files
+      if file.endswith(".py"):
+          name = file[:-3]
+          try:
+              p = getattr(g4f.Provider,name)
+              providers['data'].append({
+              "provider": name,
+              "model": [],
+              "url":p.url
+              })
+          except:
+                pass
+  return jsonify(providers)
 
 @app.errorhandler(404)
 def page_not_found(e):
