@@ -26,6 +26,7 @@ from .Providers import (
     Chimera,
     ClaudeAI,
     Ora,
+    Gravityengine,
 )
 
 Palm = Bard
