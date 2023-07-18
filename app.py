@@ -145,8 +145,8 @@ def providers():
               providers['data'].append({
               "provider": name,
               "model": p.model,
-              "url":p.url
-              "working":p.working
+              "url":p.url,
+              "working":p.working,
               "supports_stream":p.supports_stream
               })
           except:
