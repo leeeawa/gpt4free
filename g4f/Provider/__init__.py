@@ -23,6 +23,9 @@ from .Providers import (
     BingHuan,
     Wewordle,
     ChatgptAi,
+    Chimera,
+    ClaudeAI,
+    Ora,
 )
 
 Palm = Bard
