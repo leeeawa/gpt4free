@@ -147,6 +147,7 @@ def providers():
               "model": p.model,
               "url":p.url
               "working":p.working
+              "supports_stream":p.supports_stream
               })
           except:
                 pass
