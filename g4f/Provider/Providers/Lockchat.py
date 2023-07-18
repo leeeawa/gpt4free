@@ -3,7 +3,7 @@ import os
 import json
 from ...typing import sha256, Dict, get_type_hints
 url = 'http://supertest.lockchat.app'
-model = ['gpt-4', 'gpt-3.5-turbo']
+model = ['gpt-3.5-turbo','gpt-4']
 supports_stream = True
 needs_auth = False
 working = False
