@@ -143,15 +143,15 @@ def providers():
           try:
               p = getattr(g4f.Provider,name)
               providers_data["data"].append({
-              "provider": name,
-              "model": p.model,
-              "url": p.url,
-              "working": p.working,
-              "supports_stream": p.supports_stream
+              "provider": str(name),
+              "model": list(p.model),
+              "url": str(p.url),
+              "working": bool(p.working),
+              "supports_stream": bool(p.supports_stream)
               })
           except:
                 pass
-  return json.dumps(providers_data)
+  return jsonify(providers_data)
 
 @app.errorhandler(404)
 def page_not_found(e):
