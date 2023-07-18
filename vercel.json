@@ -1,0 +1,19 @@
+{
+  "name": "gpt4free",
+  "version": 2,
+  "framework": null,
+  "builds": [
+    {
+      "src": "app.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "app.py"
+    }
+  ],
+  "env": {
+  }
+}
