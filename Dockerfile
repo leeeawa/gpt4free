@@ -8,7 +8,7 @@ RUN python -m venv venv
 ENV PATH="/app/venv/bin:$PATH"  
   
 RUN apt-get update && \    
-    apt-get install -y --no-install-recommends build-essential libffi-dev cmake libcurl4-openssl-dev nodejs screen sudo && \    
+    apt-get install -y --no-install-recommends build-essential libffi-dev cmake libcurl4-openssl-dev nodejs && \    
     pip3 install --no-cache-dir -r requirements.txt      
       
 COPY . .        
