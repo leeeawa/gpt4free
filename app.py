@@ -151,7 +151,7 @@ def providers():
               })
           except:
                 pass
-  return jsonify(providers)
+  return providers
 
 @app.errorhandler(404)
 def page_not_found(e):
