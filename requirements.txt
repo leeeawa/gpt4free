@@ -7,3 +7,9 @@ Providers
 browser_cookie3
 websockets
 pyexecjs
+gunicorn
+gevent
+pytz
+requests
+openai
+python-dotenv
