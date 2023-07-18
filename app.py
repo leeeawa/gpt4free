@@ -144,8 +144,9 @@ def providers():
               p = getattr(g4f.Provider,name)
               providers['data'].append({
               "provider": name,
-              "model": [],
+              "model": p.model,
               "url":p.url
+              "working":p.working
               })
           except:
                 pass
