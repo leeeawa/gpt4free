@@ -16,14 +16,22 @@ def chat_completions():
     streaming = request.json.get('stream', False)
     model = request.json.get('model', 'gpt-3.5-turbo')
     messages = request.json.get('messages')
-    
-    response = ChatCompletion.create(model=model, stream=streaming,
+    provider = request.json.get('provider', False)
+    if not provider:
+        response = ChatCompletion.create(model=model, stream=streaming,
+                                     messages=messages)
+    else:
+        response = ChatCompletion.create(model=model, provider=getattr(g4f.Provider,provider),stream=streaming,
                                      messages=messages)
     
     if not streaming:
         while 'curl_cffi.requests.errors.RequestsError' in response:
-            response = ChatCompletion.create(model=model, stream=streaming,
-                                             messages=messages)
+            if not provider:
+                response = ChatCompletion.create(model=model, stream=streaming,
+                                     messages=messages)
+            else:
+                response = ChatCompletion.create(model=model, provider=getattr(g4f.Provider,provider),stream=streaming,
+                                     messages=messages)
 
         completion_timestamp = int(time.time())
         completion_id = ''.join(random.choices(
