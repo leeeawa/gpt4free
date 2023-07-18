@@ -3,7 +3,7 @@ import time
 import json
 import random
 
-from g4f import Model, ChatCompletion, Provider
+import g4f
 from flask import Flask, request, Response, jsonify
 from flask_cors import CORS
 
@@ -18,19 +18,19 @@ def chat_completions():
     messages = request.json.get('messages')
     provider = request.json.get('provider', False)
     if not provider:
-        response = ChatCompletion.create(model=model, stream=streaming,
+        response = g4f.ChatCompletion.create(model=model, stream=streaming,
                                      messages=messages)
     else:
-        response = ChatCompletion.create(model=model, provider=getattr(g4f.Provider,provider),stream=streaming,
+        response = g4f.ChatCompletion.create(model=model, provider=getattr(g4f.Provider,provider),stream=streaming,
                                      messages=messages)
     
     if not streaming:
         while 'curl_cffi.requests.errors.RequestsError' in response:
             if not provider:
-                response = ChatCompletion.create(model=model, stream=streaming,
+                response = g4f.ChatCompletion.create(model=model, stream=streaming,
                                      messages=messages)
             else:
-                response = ChatCompletion.create(model=model, provider=getattr(g4f.Provider,provider),stream=streaming,
+                response = g4f.ChatCompletion.create(model=model, provider=getattr(g4f.Provider,provider),stream=streaming,
                                      messages=messages)
 
         completion_timestamp = int(time.time())
