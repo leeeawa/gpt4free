@@ -137,7 +137,7 @@ def providers():
   files = [f for f in files if os.path.isfile(os.path.join("g4f/Provider/Providers", f))]
   files.sort(key=str.lower)
   providers = {"data":[]}
-  for file in files
+  for file in files:
       if file.endswith(".py"):
           name = file[:-3]
           try:
