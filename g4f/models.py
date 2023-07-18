@@ -10,13 +10,58 @@ class Model:
     class gpt_35_turbo:
         name: str = 'gpt-3.5-turbo'
         base_provider: str = 'openai'
-        best_provider: Provider.Provider = Provider.Forefront
+        best_provider: Provider.Provider = Provider.Chimera
+        
+    class gpt_35_turbo_poe:
+        name: str = 'gpt-3.5-turbo-poe'
+        base_provider: str = 'poe'
+        best_provider: Provider.Provider = Provider.Chimera
 
+    class gpt_35_turbo_openai:
+        name: str = 'gpt-3.5-turbo-openai'
+        base_provider: str = 'openai'
+        best_provider: Provider.Provider = Provider.Chimera
+
+    class gpt_35_turbo_16k:
+        name: str = 'gpt-3.5-turbo-16k'
+        base_provider: str = 'reversed'
+        best_provider: Provider.Provider = Provider.Chimera
+
+    class gpt_35_turbo_16k_openai:
+        name: str = 'gpt-3.5-turbo-16k-openai'
+        base_provider: str = 'openai'
+        best_provider: Provider.Provider = Provider.Chimera
+
+    class gpt_35_turbo_16k_poe:
+        name: str = 'gpt-3.5-turbo-16k-poe'
+        base_provider: str = 'poe'
+        best_provider: Provider.Provider = Provider.Chimera
+        
     class gpt_4:
         name: str = 'gpt-4'
         base_provider: str = 'openai'
-        best_provider: Provider.Provider = Provider.Bing
-        best_providers: list = [Provider.Bing, Provider.Lockchat]
+        best_provider: Provider.Provider = Provider.Chimera
+        best_providers: list = [Provider.Bing, Provider.BingHuan, Provider.Chimera]
+        
+    class gpt_4_0613:
+        name: str = 'gpt-4-0613'
+        base_provider: str = 'reversed'
+        best_provider: Provider.Provider = Provider.Chimera
+
+    class gpt_4_poe:
+        name: str = 'gpt-4-poe'
+        base_provider: str = 'poe'
+        best_provider: Provider.Provider = Provider.Chimera
+
+    class gpt_4_32k:
+        name: str = 'gpt-4-32k'
+        base_provider: str = 'reversed'
+        best_provider: Provider.Provider = Provider.Chimera
+
+    class gpt_4_32k_poe:
+        name: str = 'gpt-4-32k-poe'
+        base_provider: str = 'poe'
+        best_provider: Provider.Provider = Provider.Chimera
 
     class claude_instant_v1_100k:
         name: str = 'claude-instant-v1-100k'
@@ -37,7 +82,27 @@ class Model:
         name: str = 'claude-v1'
         base_provider: str = 'anthropic'
         best_provider: Provider.Provider = Provider.Vercel
+        
+    class claude_instant_100k:
+        name: str = 'claude-instant-100k'
+        base_provider: str = 'anthropic'
+        best_provider: Provider.Provider = Provider.Chimera
 
+    class claude_instant:
+        name: str = 'claude-instant'
+        base_provider: str = 'anthropic'
+        best_provider: Provider.Provider = Provider.Chimera
+        
+    class claude_2:
+        name: str = 'claude-2'
+        base_provider: str = 'anthropic'
+        best_provider: Provider.Provider = Provider.ClaudeAI
+    
+    class claude_2_100k:
+        name: str = 'claude-2-100k'
+        base_provider: str = 'anthropic'
+        best_provider: Provider.Provider = Provider.Chimera
+        
     class alpaca_7b:
         name: str = 'alpaca-7b'
         base_provider: str = 'replicate'
@@ -153,46 +218,35 @@ class Model:
         base_provider: str = 'huggingface'
         best_provider: Provider.Provider = Provider.H2o
         
-    class gpt_35_turbo_16k:
-        name: str = 'gpt-3.5-turbo-16k'
-        base_provider: str = 'openai'
-        best_provider: Provider.Provider = Provider.EasyChat
+    class sage:
+        name: str = 'sage'
+        base_provider: str = 'poe'
+        best_provider: Provider.Provider = Provider.Chimera
         
-    class gpt_35_turbo_0613:
-        name: str = 'gpt-3.5-turbo-0613'
-        base_provider: str = 'openai'
-        best_provider: Provider.Provider = Provider.EasyChat
-        
-    class gpt_35_turbo_16k_0613:
-        name: str = 'gpt-3.5-turbo-16k-0613'
-        base_provider: str = 'openai'
-        best_provider: Provider.Provider = Provider.EasyChat
-        
-    class gpt_4_32k:
-        name: str = 'gpt-4-32k'
-        base_provider: str = 'openai'
-        best_provider =  None
-        
-    class gpt_4_0613:
-        name: str = 'gpt-4-0613'
-        base_provider: str = 'openai'
-        best_provider = None
-    
 class ModelUtils:
     convert: dict = {
         'gpt-3.5-turbo': Model.gpt_35_turbo,
-        'gpt-3.6-turbo-16k': Model.gpt_35_turbo_16k,
-        'gpt-3.5-turbo-0613': Model.gpt_35_turbo_0613,
-        'gpt-3.5-turbo-16k-0613': Model.gpt_35_turbo_16k_0613,
+        'gpt-3.5-turbo-poe': Model.gpt_35_turbo_poe,
+        'gpt-3.5-turbo-openai': Model.gpt_35_turbo_openai,
+        'gpt-3.5-turbo-16k': Model.gpt_35_turbo_16k,
+        'gpt-3.5-turbo-16k-openai': Model.gpt_35_turbo_16k_openai,
+        'gpt-3.5-turbo-16k-poe': Model.gpt_35_turbo_16k_poe,
         
         'gpt-4': Model.gpt_4,
-        'gpt-4-32k': Model.gpt_4_32k,
         'gpt-4-0613': Model.gpt_4_0613,
+        'gpt-4-poe': Model.gpt_4_poe,
+        'gpt-4-32k': Model.gpt_4_32k,
+        'gpt-4-32k-poe': Model.gpt_4_32k_poe,
         
         'claude-instant-v1-100k': Model.claude_instant_v1_100k,
         'claude-v1-100k': Model.claude_v1_100k,
         'claude-instant-v1': Model.claude_instant_v1,
         'claude-v1': Model.claude_v1,
+        
+        'claude-instant-100k': Model.claude_instant_100k,
+        'claude-instant': Model.claude_instant,
+        'claude-2': Model.claude_2,
+        'claude-2-100k': Model.claude_2_100k,
         
         'alpaca-7b': Model.alpaca_7b,
         'stablelm-tuned-alpha-7b': Model.stablelm_tuned_alpha_7b,
@@ -229,4 +283,6 @@ class ModelUtils:
         'falcon-40b': Model.falcon_40b,
         'falcon-7b': Model.falcon_7b,
         'llama-13b': Model.llama_13b,
+
+        'sage': Model.sage,
     }
