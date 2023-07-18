@@ -158,7 +158,7 @@ def unsupported_media_type(e):
 if __name__ == '__main__':
     config = {
         'host': '0.0.0.0',
-        'port': 80,
+        'port': 8080,
         'debug': False
     }
 
