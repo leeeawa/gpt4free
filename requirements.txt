@@ -13,3 +13,5 @@ pytz
 requests
 openai
 python-dotenv
+flask
+flask_cors
