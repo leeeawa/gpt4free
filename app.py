@@ -136,13 +136,13 @@ def providers():
   files = os.listdir("g4f/Provider/Providers")
   files = [f for f in files if os.path.isfile(os.path.join("g4f/Provider/Providers", f))]
   files.sort(key=str.lower)
-  providers = {"data":[]}
+  providers_data = {"data":[]}
   for file in files:
       if file.endswith(".py"):
           name = file[:-3]
           try:
               p = getattr(g4f.Provider,name)
-              providers['data'].append({
+              providers_data["data"].append({
               "provider": name,
               "model": p.model,
               "url":p.url,
@@ -151,7 +151,7 @@ def providers():
               })
           except:
                 pass
-  return providers
+  return providers_data
 
 @app.errorhandler(404)
 def page_not_found(e):
