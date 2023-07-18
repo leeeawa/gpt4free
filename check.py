@@ -24,8 +24,8 @@ while True:
               for i in p.model:
                   status['data'][-1]['model'].append({i:{'status':''}})
                   try:
-                      response = g4f.ChatCompletion.create(model=i, provider=p, messages=[{"role": "user", "content": "Please say Yes.Just for fun."}], stream=False)
-                      if 'Yes' in response:
+                      response = g4f.ChatCompletion.create(model=i, provider=p, messages=[{"role": "user", "content": "Hi,Please say Hey."}], stream=False)
+                      if 'Hey' in response or 'hey' in response or 'Hello' in response or 'orry' in response:
                           status['data'][-1]['model'][-1][i]['status'] = 'Active'
                       else:
                           status['data'][-1]['model'][-1][i]['status'] = 'Inactive'
