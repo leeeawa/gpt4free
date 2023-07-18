@@ -145,13 +145,13 @@ def providers():
               providers_data["data"].append({
               "provider": name,
               "model": p.model,
-              "url":p.url,
-              "working":p.working,
-              "supports_stream":p.supports_stream
+              "url": p.url,
+              "working": p.working,
+              "supports_stream": p.supports_stream
               })
           except:
                 pass
-  return providers_data
+  return json.dumps(providers_data)
 
 @app.errorhandler(404)
 def page_not_found(e):
