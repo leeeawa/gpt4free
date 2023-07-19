@@ -16,3 +16,4 @@ flask
 flask_cors
 websocket-client
 tls-client
+free-proxy
