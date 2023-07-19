@@ -62,8 +62,7 @@ class Model:
         name: str = 'gpt-4-32k-poe'
         base_provider: str = 'poe'
         best_provider: Provider.Provider = Provider.Chimera
-        
-'''
+    '''
     class claude_instant_v1_100k:
         name: str = 'claude-instant-v1-100k'
         base_provider: str = 'anthropic'
@@ -77,8 +76,7 @@ class Model:
     class claude_v1_100k:
         name: str = 'claude-v1-100k'
         base_provider: str = 'anthropic'
-        best_provider: Provider.Provider = Provider.Vercel
-''' 
+        best_provider: Provider.Provider = Provider.Vercel'''
     class claude_v1:
         name: str = 'claude-v1'
         base_provider: str = 'anthropic'
