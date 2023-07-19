@@ -15,4 +15,5 @@ COPY . .
 RUN chmod +x ./app.py
 RUN chmod +x ./start.sh
 RUN chmod -R 777 /app
-CMD ["python3 ./app.py"]
+ENTRYPOINT ["python3"]
+CMD ["app.py"]  
