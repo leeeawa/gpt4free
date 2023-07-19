@@ -1,7 +1,7 @@
 import os
 from helpers import poe
 import random
-from ..typing import sha256, Dict, get_type_hints
+from ...typing import sha256, Dict, get_type_hints
 
 url = 'https://poe.com/'
 models = {'gpt-3.5-turbo':'capybara','claude-instant':'a2','palm':'acouchy','palm2':'acouchy','bard':'acouchy','google-bard':'acouchy','google-palm':'acouchy'}
