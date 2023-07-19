@@ -88,10 +88,10 @@ def chat_completions():
 def billing_subscription():
   return jsonify({
   "object": "billing_subscription",
-  "has_payment_method": true,
-  "canceled": false,
-  "canceled_at": null,
-  "delinquent": null,
+  "has_payment_method": True,
+  "canceled": False,
+  "canceled_at": None,
+  "delinquent": None,
   "access_until": 1690848000,
   "soft_limit": 6944500,
   "hard_limit": 166666666,
@@ -103,18 +103,18 @@ def billing_subscription():
     "title": "Pay-as-you-go",
     "id": "payg"
   },
-  "primary": true,
+  "primary": True,
   "account_name": "Lemon SMith",
-  "po_number": null,
-  "billing_email": null,
-  "tax_ids": null,
+  "po_number": None,
+  "billing_email": None,
+  "tax_ids": None,
   "billing_address": {
     "city": "Hastings",
     "line1": " 2 Amherst Road",
     "country": "GB",
     "postal_code": "TN34 1TT"
   },
-  "business_address": null
+  "business_address": None
 }
 )
 
