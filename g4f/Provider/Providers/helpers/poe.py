@@ -8,7 +8,7 @@ import random
 from pathlib import Path
 from urllib.parse import urlparse
 from fp.fp import FreeProxy
-proxy = FreeProxy(country_id=['US']).get()
+
 config = json.loads(sys.argv[1])
 messages = config['messages']
 model = config['model']
@@ -743,6 +743,6 @@ class Client:
 load_queries()
 
 client = Client(token)
-for chunk in client.send_message(models[model], messages, with_chat_break=True,proxy=proxy):
+for chunk in client.send_message(models[model], messages, with_chat_break=True):
     print(chunk["text_new"], end="", flush=True)
 client.purge_conversation(models[model], count=3)
