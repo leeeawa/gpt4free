@@ -15,4 +15,4 @@ COPY . .
 RUN chmod +x ./app.py
 RUN chmod +x ./start.sh
 RUN chmod -R 777 /app
-ENTRYPOINT [ “./start.sh”]
+ENTRYPOINT ["./start.sh"]
