@@ -1,5 +1,5 @@
 import os
-from helpers import poe
+import helpers.poe
 import random
 from ..typing import sha256, Dict, get_type_hints
 
@@ -18,7 +18,7 @@ def _create_completion(model: str, messages: list, stream: bool, **kwargs):
         conversation += '%s: %s\n' % (message['role'], message['content'])
     
     conversation += 'assistant: '
-    client = poe.Client(random.choice(token))
+    client = helpers.poe.Client(random.choice(token))
 
     for chunk in client.send_message(models[model], conversation, with_chat_break=True):
       yield chunk["text_new"]
