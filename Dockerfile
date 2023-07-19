@@ -6,7 +6,7 @@ WORKDIR /usr/src/app
 
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
-
 COPY . .
-USER root
-CMD [ "python", "./app.py" ]
+RUN chmod -R 777 /usr/src/app
+
+CMD [ "python3", "./app.py" ]
