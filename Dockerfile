@@ -1,13 +1,11 @@
-FROM python:latest 
+FROM python:3
 RUN apt-get update && \    
-    apt-get install -y --no-install-recommends build-essential libffi-dev cmake libcurl4-openssl-dev nodejs screen
-RUN useradd -m -u 1000 user
-USER user
-ENV HOME=/home/user \
-	PATH=/home/user/.local/bin:$PATH
-WORKDIR $HOME/app
-COPY --chown=user requirements.txt requirements.txt  
-RUN pip install --no-cache-dir --upgrade pip
+    apt-get install -y --no-install-recommends build-essential libffi-dev cmake libcurl4-openssl-dev nodejs screen sudo
+WORKDIR /usr/src/app
+
+COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
-COPY --chown=user . $HOME/app
-CMD ["python3", "./app.py"]  
+
+COPY . .
+
+CMD [ "python", "./app.py" ]
