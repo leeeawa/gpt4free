@@ -13,7 +13,6 @@ working = True
 token = ['H959lSH8kjQ-b4K8FCrDPg%3D%3D']
 
 def _create_completion(model: str, messages: list, stream: bool, **kwargs):
-    print(sys.executable)
     path = os.path.dirname(os.path.realpath(__file__))
     conversation = 'This is a conversation between a human and a language model. The language model should always respond as the assistant, referring to the past history of messages if needed.\n'
     
