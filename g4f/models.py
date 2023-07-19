@@ -62,7 +62,7 @@ class Model:
         name: str = 'gpt-4-32k-poe'
         base_provider: str = 'poe'
         best_provider: Provider.Provider = Provider.Chimera
-
+'''
     class claude_instant_v1_100k:
         name: str = 'claude-instant-v1-100k'
         base_provider: str = 'anthropic'
@@ -77,12 +77,12 @@ class Model:
         name: str = 'claude-v1-100k'
         base_provider: str = 'anthropic'
         best_provider: Provider.Provider = Provider.Vercel
-
+''' 
     class claude_v1:
         name: str = 'claude-v1'
         base_provider: str = 'anthropic'
         best_provider: Provider.Provider = Provider.Vercel
-        
+       
     class claude_instant_100k:
         name: str = 'claude-instant-100k'
         base_provider: str = 'anthropic'
@@ -238,9 +238,6 @@ class ModelUtils:
         'gpt-4-32k': Model.gpt_4_32k,
         'gpt-4-32k-poe': Model.gpt_4_32k_poe,
         
-        'claude-instant-v1-100k': Model.claude_instant_v1_100k,
-        'claude-v1-100k': Model.claude_v1_100k,
-        'claude-instant-v1': Model.claude_instant_v1,
         'claude-v1': Model.claude_v1,
         
         'claude-instant-100k': Model.claude_instant_100k,
