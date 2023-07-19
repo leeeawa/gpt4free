@@ -1,10 +1,12 @@
 ---
-title: GPT4FREE
-emoji: 🐳
-colorFrom: purple
-colorTo: gray
-sdk: docker
-app_port: 80
+title: GPT4Free 
+emoji: 🚀  
+colorFrom: blue  
+colorTo: yellow  
+sdk: docker  
+sdk_version: 1.24.0  
+app_file: app.py  
+pinned: true  
 ---
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/leeeawa/gpt4free/HEAD)
  
