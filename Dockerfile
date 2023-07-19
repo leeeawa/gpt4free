@@ -8,5 +8,7 @@ COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 RUN chmod -R 777 /usr/src/app
+RUN chmod -R 777 ./app.py
+RUN chmod -R 777 ./check.py
 
 CMD [ "python3", "./app.py" ]
