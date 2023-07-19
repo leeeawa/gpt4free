@@ -28,6 +28,7 @@ from .Providers import (
     Ora,
     Gravityengine,
     Phind,
+    Poe,
 )
 
 Palm = Bard
