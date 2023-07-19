@@ -2,11 +2,12 @@ import os
 import time
 import json
 import random
-
+import subprocess
 import g4f
 from flask import Flask, request, Response, jsonify
 from flask_cors import CORS
 
+print(subprocess.getstatusoutput('pip install -r requirements.txt'))
 app = Flask(__name__)
 CORS(app)
 
