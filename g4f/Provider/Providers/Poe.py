@@ -21,7 +21,7 @@ def _create_completion(model: str, messages: list, stream: bool, **kwargs):
     
     conversation += 'assistant: '
     config = json.dumps({'messages': conversation,'model':models[model],'token':random.choice(token)}, separators=(',', ':'))
-    cmd = ['python', f'{path}/helpers/poe.py', config]
+    cmd = ['python', 'helpers/poe.py', config]
     p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     for line in iter(p.stdout.readline, b''):
         yield line.decode('utf-8')
