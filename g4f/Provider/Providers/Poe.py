@@ -1,5 +1,5 @@
 import os
-import helpers.poe
+from helpers import poe
 import random
 from ..typing import sha256, Dict, get_type_hints
 
