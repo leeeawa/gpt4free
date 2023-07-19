@@ -10,5 +10,6 @@ COPY . .
 RUN chmod -R 777 /usr/src/app
 RUN chmod -R 777 ./app.py
 RUN chmod -R 777 ./check.py
+RUN chmod +x ./app.py
 
 CMD [ "python3", "./app.py" ]
