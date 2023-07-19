@@ -22,7 +22,7 @@ model = [
     'gpt-4-poe',
     'gpt-4-32k',
     'gpt-4-32k-poe',
-    'claude_instant',
+    'claude-instant',
     'claude-instant-100k',
     'claude-2-100k',
     'sage'
