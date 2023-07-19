@@ -12,5 +12,5 @@ RUN apt-get update && \
     pip3 install --no-cache-dir -r requirements.txt      
       
 COPY . .        
-EXPOSE 89080
+EXPOSE 8080
 CMD ["python3", "./app.py"]  
