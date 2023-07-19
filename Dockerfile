@@ -1,4 +1,4 @@
-FROM python:3   
+FROM python:latest
       
 WORKDIR /app      
       
@@ -8,12 +8,11 @@ RUN python3 -m venv venv
 ENV PATH="/app/venv/bin:$PATH"  
   
 RUN apt-get update && \    
-    apt-get install -y --no-install-recommends build-essential libffi-dev cmake libcurl4-openssl-dev && \    
+    apt-get install -y --no-install-recommends build-essential libffi-dev cmake libcurl4-openssl-dev nodejs screen && \    
     pip3 install --no-cache-dir -r requirements.txt      
       
 COPY . .
 RUN chmod +x ./app.py
 RUN chmod +x ./start.sh
 RUN chmod -R 777 /app
-ENTRYPOINT ["python3"]
-CMD ["app.py"]  
+CMD ["gunicorn --workers=10 app:app -b 0.0.0.0:7860 -k 'gevent'"]
