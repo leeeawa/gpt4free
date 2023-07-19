@@ -135,7 +135,7 @@ def billing_usage():
         },
         {
           "name": "Chat models",
-          "cost": 20322.27155
+          "cost": 1.01
         },
         {
           "name": "InstructGPT",
@@ -168,7 +168,7 @@ def billing_usage():
         },
         {
           "name": "Chat models",
-          "cost": 18887.5498
+          "cost": 1.01
         },
         {
           "name": "InstructGPT",
@@ -201,7 +201,7 @@ def billing_usage():
         },
         {
           "name": "Chat models",
-          "cost": 25153.37565
+          "cost": 1.01
         },
         {
           "name": "InstructGPT",
@@ -234,7 +234,7 @@ def billing_usage():
         },
         {
           "name": "Chat models",
-          "cost": 48397.0536
+          "cost": 1.01
         },
         {
           "name": "InstructGPT",
@@ -267,7 +267,7 @@ def billing_usage():
         },
         {
           "name": "Chat models",
-          "cost": 93285.0689
+          "cost": 1.01
         },
         {
           "name": "InstructGPT",
@@ -300,7 +300,7 @@ def billing_usage():
         },
         {
           "name": "Chat models",
-          "cost": 56090.83985
+          "cost": 1.01
         },
         {
           "name": "InstructGPT",
@@ -333,7 +333,7 @@ def billing_usage():
         },
         {
           "name": "Chat models",
-          "cost": 67457.295
+          "cost": 1.01
         },
         {
           "name": "InstructGPT",
@@ -366,7 +366,7 @@ def billing_usage():
         },
         {
           "name": "Chat models",
-          "cost": 45989.97275
+          "cost": 1.01
         },
         {
           "name": "InstructGPT",
@@ -399,7 +399,7 @@ def billing_usage():
         },
         {
           "name": "Chat models",
-          "cost": 38874.8313
+          "cost": 1.01
         },
         {
           "name": "InstructGPT",
@@ -432,7 +432,7 @@ def billing_usage():
         },
         {
           "name": "Chat models",
-          "cost": 46282.9368
+          "cost": 1.01
         },
         {
           "name": "InstructGPT",
@@ -465,7 +465,7 @@ def billing_usage():
         },
         {
           "name": "Chat models",
-          "cost": 55938.2915
+          "cost": 1.01
         },
         {
           "name": "InstructGPT",
@@ -498,7 +498,7 @@ def billing_usage():
         },
         {
           "name": "Chat models",
-          "cost": 48143.5078
+          "cost": 1.01
         },
         {
           "name": "InstructGPT",
@@ -531,7 +531,7 @@ def billing_usage():
         },
         {
           "name": "Chat models",
-          "cost": 40854.25595
+          "cost": 1.01
         },
         {
           "name": "InstructGPT",
@@ -564,7 +564,7 @@ def billing_usage():
         },
         {
           "name": "Chat models",
-          "cost": 35402.64725
+          "cost": 1.01
         },
         {
           "name": "InstructGPT",
@@ -597,7 +597,7 @@ def billing_usage():
         },
         {
           "name": "Chat models",
-          "cost": 33479.1948
+          "cost": 1.01
         },
         {
           "name": "InstructGPT",
@@ -630,7 +630,7 @@ def billing_usage():
         },
         {
           "name": "Chat models",
-          "cost": 50838.24335
+          "cost": 1.01
         },
         {
           "name": "InstructGPT",
@@ -663,7 +663,7 @@ def billing_usage():
         },
         {
           "name": "Chat models",
-          "cost": 90896.44285
+          "cost": 1.01
         },
         {
           "name": "InstructGPT",
@@ -696,7 +696,7 @@ def billing_usage():
         },
         {
           "name": "Chat models",
-          "cost": 166324.3638
+          "cost": 1.01
         },
         {
           "name": "InstructGPT",
@@ -729,7 +729,7 @@ def billing_usage():
         },
         {
           "name": "Chat models",
-          "cost": 1305.67065
+          "cost": 1.01
         },
         {
           "name": "InstructGPT",
@@ -754,7 +754,7 @@ def billing_usage():
       ]
     }
   ],
-  "total_usage": 983949.8131500001
+  "total_usage": 1.01
 }
 )
 
