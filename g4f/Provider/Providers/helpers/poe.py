@@ -1,4 +1,4 @@
-import re, json, random, logging, time, queue, threading, traceback, hashlib, string, random, os
+import re, json, random, logging, time, queue, threading, traceback, hashlib, string, random, os, sys
 import requests
 import tls_client as requests_tls
 import secrets
@@ -8,6 +8,10 @@ import random
 from pathlib import Path
 from urllib.parse import urlparse
 
+config = json.loads(sys.argv[1])
+messages = config['messages']
+model = config['model']
+token = config['token']
 parent_path = Path(__file__).resolve().parent
 queries_path = parent_path / "poe_graphql"
 queries = {}
@@ -736,3 +740,8 @@ class Client:
     self.send_query("DeleteUserMessagesMutation", {})
 
 load_queries()
+
+client = Client(token)
+for chunk in client.send_message(models[model], messages, with_chat_break=True):
+    print(chunk["text_new"], end="", flush=True)
+client.purge_conversation(models[model], count=3)
