@@ -1,8 +1,8 @@
 import re, json, random, logging, time, queue, threading, traceback, hashlib, string, random, os, sys
-from .... import requests
-from .... import tls_client as requests_tls
+import requests
+import tls_client as requests_tls
 import secrets
-from .... import websocket
+import websocket
 import uuid
 import random
 from pathlib import Path
