@@ -196,7 +196,7 @@ class Model:
     class palm:
         name: str = 'palm'
         base_provider: str = 'google'
-        best_provider: Provider.Provider = Provider.Bard
+        best_provider: Provider.Provider = Provider.Poe
         
             
     """    'falcon-40b': Model.falcon_40b,
