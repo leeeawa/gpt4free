@@ -52,16 +52,17 @@ class Model:
         name: str = 'gpt-4-poe'
         base_provider: str = 'poe'
         best_provider: Provider.Provider = Provider.Chimera
-
+        
     class gpt_4_32k:
         name: str = 'gpt-4-32k'
         base_provider: str = 'reversed'
         best_provider: Provider.Provider = Provider.Chimera
-
+        
     class gpt_4_32k_poe:
         name: str = 'gpt-4-32k-poe'
         base_provider: str = 'poe'
         best_provider: Provider.Provider = Provider.Chimera
+        
 '''
     class claude_instant_v1_100k:
         name: str = 'claude-instant-v1-100k'
