@@ -1,6 +1,7 @@
 import os
 import subprocess
 import random
+import json
 from ...typing import sha256, Dict, get_type_hints
 
 url = 'https://poe.com/'
