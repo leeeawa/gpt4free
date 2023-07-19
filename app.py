@@ -43,9 +43,9 @@ def chat_completions():
             'created': completion_timestamp,
             'model': model,
             'usage': {
-                'prompt_tokens': None,
-                'completion_tokens': None,
-                'total_tokens': None
+                'prompt_tokens': len(messages),
+                'completion_tokens': len(response),
+                'total_tokens': len(messages)+len(response)
             },
             'choices': [{
                 'message': {
