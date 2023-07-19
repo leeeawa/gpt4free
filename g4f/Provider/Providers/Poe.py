@@ -1,5 +1,5 @@
 import os
-from helpers import poe
+import subprocess
 import random
 from ...typing import sha256, Dict, get_type_hints
 
@@ -12,18 +12,18 @@ working = True
 token = ['H959lSH8kjQ-b4K8FCrDPg%3D%3D']
 
 def _create_completion(model: str, messages: list, stream: bool, **kwargs):
+    path = os.path.dirname(os.path.realpath(__file__))
     conversation = 'This is a conversation between a human and a language model. The language model should always respond as the assistant, referring to the past history of messages if needed.\n'
     
     for message in messages:
         conversation += '%s: %s\n' % (message['role'], message['content'])
     
     conversation += 'assistant: '
-    client = helpers.poe.Client(random.choice(token))
-
-    for chunk in client.send_message(models[model], conversation, with_chat_break=True):
-      yield chunk["text_new"]
-    client.purge_conversation(models[model], count=3)
-
+    config = json.dumps({'messages': conversation,'model':models[model],'token':random.choice(token)}, separators=(',', ':'))
+    cmd = ['python3', f'{path}/helpers/poe.py', config]
+    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    for line in iter(p.stdout.readline, b''):
+        yield line.decode('utf-8')
 
 params = f'g4f.Providers.{os.path.basename(__file__)[:-3]} supports: ' + \
     '(%s)' % ', '.join(
