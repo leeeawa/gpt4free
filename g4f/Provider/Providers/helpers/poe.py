@@ -123,10 +123,10 @@ def get_saved_device_id(user_id):
   return device_id
 
 class Client:
-  gql_url = "https://poe.lemon0.workers.dev/api/gql_POST"
-  gql_recv_url = "https://poe.lemon0.workers.dev/api/receive_POST"
-  home_url = "https://poe.lemon0.workers.dev"
-  settings_url = "https://poe.lemon0.workers.dev/api/settings"
+  gql_url = "https://poe.lemonsoftware.eu.org/api/gql_POST"
+  gql_recv_url = "https://poe.lemonsoftware.eu.org/api/receive_POST"
+  home_url = "https://poe.lemonsoftware.eu.org"
+  settings_url = "https://poe.lemonsoftware.eu.org/api/settings"
 
   def __init__(self, token, proxy=None, headers=headers, device_id=None, client_identifier=client_identifier):
     self.ws_connecting = False
@@ -145,9 +145,9 @@ class Client:
     self.suggestion_callbacks = {}
 
     self.headers = {**headers, **{
-      "Referrer": "https://poe.lemon0.workers.dev/",
-      "Origin": "https://poe.lemon0.workers.dev",
-      "Host": "poe.lemon0.workers.dev",
+      "Referrer": "https://poe.lemonsoftware.eu.org/",
+      "Origin": "https://poe.lemonsoftware.eu.org",
+      "Host": "poe.lemonsoftware.eu.org",
       "Sec-Fetch-Dest": "empty",
       "Sec-Fetch-Mode": "cors",
       "Sec-Fetch-Site": "same-origin",
@@ -169,7 +169,7 @@ class Client:
       }
       logger.info(f"Proxy enabled: {self.proxy}")
 
-    self.session.cookies.set("p-b", self.token, domain="poe.lemon0.workers.dev")
+    self.session.cookies.set("p-b", self.token, domain="poe.lemonsoftware.eu.org")
     self.session.headers.update(self.headers)
 
   def setup_connection(self):
@@ -238,7 +238,7 @@ class Client:
     return next_data
   
   def get_bot(self, handle):
-    url = f'https://poe.lemon0.workers.dev/_next/data/{self.next_data["buildId"]}/{handle}.json'
+    url = f'https://poe.lemonsoftware.eu.org/_next/data/{self.next_data["buildId"]}/{handle}.json'
     
     data = request_with_retries(self.session.get, url).json()
     if "payload" in data["pageProps"]:
@@ -256,7 +256,7 @@ class Client:
 
     if not "availableBotsConnection" in self.viewer:
       raise RuntimeError("Invalid token or no bots are available.")
-    bot_list_url = f'https://poe.lemon0.workers.dev/_next/data/{self.next_data["buildId"]}/index.json'
+    bot_list_url = f'https://poe.lemonsoftware.eu.org/_next/data/{self.next_data["buildId"]}/index.json'
     bot_list = self.viewer["availableBotsConnection"]["edges"]
 
     threads = []
@@ -295,7 +295,7 @@ class Client:
   
   def explore_bots(self, end_cursor=None, count=25):
     if not end_cursor:
-      url = f'https://poe.lemon0.workers.dev/_next/data/{self.next_data["buildId"]}/explore_bots.json'
+      url = f'https://poe.lemonsoftware.eu.org/_next/data/{self.next_data["buildId"]}/explore_bots.json'
       r = request_with_retries(self.session.get, url).json()
       if "payload" in r["pageProps"]:
         key = "payload"
