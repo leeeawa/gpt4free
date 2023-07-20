@@ -43,4 +43,4 @@ while True:
   status['time'] = now.strftime("%Y-%m-%d %H:%M:%S")
   r = requests.post("https://gpt.lemonsoftware.eu.org/v1/status",data=json.dumps(status),headers={"content-type": "application/json"})
   print(r.text)
-  time.sleep(900)
+  time.sleep(300)
