@@ -2,6 +2,7 @@ import os
 import time
 import json
 import random
+import requests
 import g4f
 from flask import Flask, request, Response, jsonify
 from flask_cors import CORS
@@ -17,17 +18,31 @@ def chat_completions():
     messages = request.json.get('messages')
     provider = request.json.get('provider', False)
     if not provider:
-        response = g4f.ChatCompletion.create(model=model, stream=streaming,
+        r = requests.get('https://gpt.lemonsoftware.eu.org/v1/status')
+        for p in random.shuffle(r.json()['data']):
+            for m in p['model']:
+                if p[model]['status'] = 'Active' and model in m:
+                    response = g4f.ChatCompletion.create(model=model, provider=getattr(g4f.Provider,p['provider'),stream=streaming,
                                      messages=messages)
+                    break
+            else:
+                continue
+            break
     else:
         response = g4f.ChatCompletion.create(model=model, provider=getattr(g4f.Provider,provider),stream=streaming,
                                      messages=messages)
     
     if not streaming:
         while 'curl_cffi.requests.errors.RequestsError' in response:
-            if not provider:
-                response = g4f.ChatCompletion.create(model=model, stream=streaming,
-                                     messages=messages)
+            for p in random.shuffle(r.json()['data']):
+                for m in p['model']:
+                    if p[model]['status'] = 'Active' and model in m:
+                        response = g4f.ChatCompletion.create(model=model, provider=getattr(g4f.Provider,p['provider'),stream=streaming,
+                                         messages=messages)
+                        break
+                else:
+                    continue
+                break
             else:
                 response = g4f.ChatCompletion.create(model=model, provider=getattr(g4f.Provider,provider),stream=streaming,
                                      messages=messages)
