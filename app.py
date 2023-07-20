@@ -19,7 +19,7 @@ def chat_completions():
     provider = request.json.get('provider', False)
     if not provider:
         r = requests.get('https://gpt.lemonsoftware.eu.org/v1/status')
-        print(r.text)
+        print(r.json())
         for p in random.shuffle(r.json()['data']):
             for m in p['model']:
                 if model in m and m[model]['status'] == 'Active':
