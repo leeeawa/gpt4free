@@ -75,6 +75,7 @@ def chat_completions():
         }
 
     def stream():
+        nonlocal response
         for token in response:
             completion_timestamp = int(time.time())
             completion_id = ''.join(random.choices(
