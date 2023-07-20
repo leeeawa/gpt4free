@@ -19,8 +19,9 @@ def chat_completions():
     provider = request.json.get('provider', False)
     if not provider:
         r = requests.get('https://gpt.lemonsoftware.eu.org/v1/status')
-        print(random.shuffle(r.json()['data']))
-        for p in random.shuffle(r.json()['data']):
+        r_j = r.json()['data']
+        random.shuffle(r_j)
+        for p in r_j:
             for m in p['model']:
                 if model in m and m[model]['status'] == 'Active':
                     response = g4f.ChatCompletion.create(model=model, provider=getattr(g4f.Provider,p['provider']),stream=streaming,
@@ -35,7 +36,8 @@ def chat_completions():
     
     if not streaming:
         while 'curl_cffi.requests.errors.RequestsError' in response:
-            for p in random.shuffle(r.json()['data']):
+            random.shuffle(r_j)
+            for p in r_j:
                 for m in p['model']:
                     if model in m and p[model]['status'] == 'Active':
                         response = g4f.ChatCompletion.create(model=model, provider=getattr(g4f.Provider,p['provider']),stream=streaming,
