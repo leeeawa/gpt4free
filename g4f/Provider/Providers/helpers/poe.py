@@ -145,8 +145,8 @@ class Client:
     self.suggestion_callbacks = {}
 
     self.headers = {**headers, **{
-      "Referrer": "https://poe.lemonsoftware.eu.org/",
-      "Origin": "https://poe.lemonsoftware.eu.org",
+      "Referrer": "https://poe.com/",
+      "Origin": "https://poe.com",
       "Host": "poe.lemonsoftware.eu.org",
       "Sec-Fetch-Dest": "empty",
       "Sec-Fetch-Mode": "cors",
