@@ -83,7 +83,7 @@ def chat_completions():
     print(response)
     def stream():
         nonlocal response
-        if not response:
+        if not next(response):
             response = provider + 'is not working.'
         for token in response:
             completion_timestamp = int(time.time())
