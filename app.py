@@ -30,6 +30,7 @@ def chat_completions():
                     response = g4f.ChatCompletion.create(model=model, provider=getattr(g4f.Provider,p['provider']),stream=streaming,
                                      messages=messages)
                     provider = p['provider']
+                    print(provider)
                     break
             else:
                 continue
@@ -49,6 +50,7 @@ def chat_completions():
                     response = g4f.ChatCompletion.create(model=model, provider=getattr(g4f.Provider,p['provider']),stream=streaming,
                                      messages=messages)
                     provider = p['provider']
+                    print(provider)
                     break
             else:
                 continue
