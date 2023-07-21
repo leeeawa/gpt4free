@@ -15,4 +15,4 @@ COPY . .
 RUN chmod +x ./app.py
 RUN chmod +x ./start.sh
 RUN chmod -R 777 /app
-CMD gunicorn --workers=10 app:app -b 0.0.0.0:7860 -k 'gevent'
+CMD python3 app.py
