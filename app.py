@@ -84,6 +84,7 @@ def chat_completions():
         }
     print(response)
     def stream():
+        print(1)
         nonlocal response
         for token in response:
             completion_timestamp = int(time.time())
@@ -110,7 +111,7 @@ def chat_completions():
 
             yield 'data: %s\n\n' % json.dumps(completion_data, separators=(',' ':'))
             time.sleep(0.1)
-
+    print(2)
     return app.response_class(stream(), mimetype='text/event-stream')
     
 @app.route("/v1/dashboard/billing/subscription")
