@@ -24,6 +24,8 @@ def chat_completions():
         for p in r_j:
             for m in p['model']:
                 if model in m and m[model]['status'] == 'Active':
+                    if getattr(g4f.Provider,p['provider']).support_stream != streaming:
+                        streaming = False
                     response = g4f.ChatCompletion.create(model=model, provider=getattr(g4f.Provider,p['provider']),stream=streaming,
                                      messages=messages)
                     provider = p['provider']
@@ -41,6 +43,8 @@ def chat_completions():
             for p in r_j:
                 for m in p['model']:
                     if model in m and p[model]['status'] == 'Active':
+                        if getattr(g4f.Provider,p['provider']).support_stream != streaming:
+                            streaming = False
                         response = g4f.ChatCompletion.create(model=model, provider=getattr(g4f.Provider,p['provider']),stream=streaming,
                                          messages=messages)
                         provider = p['provider']
