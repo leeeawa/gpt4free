@@ -34,28 +34,26 @@ def chat_completions():
                 continue
             break
     else:
+        if getattr(g4f.Provider,p['provider']).supports_stream != streaming:
+                        streaming = False
         response = g4f.ChatCompletion.create(model=model, provider=getattr(g4f.Provider,provider),stream=streaming,
                                      messages=messages)
-    
-    if not streaming:
-        while 'curl_cffi.requests.errors.RequestsError' in response:
-            random.shuffle(r_j)
-            for p in r_j:
-                for m in p['model']:
-                    if model in m and p[model]['status'] == 'Active':
-                        if getattr(g4f.Provider,p['provider']).supports_stream != streaming:
-                            streaming = False
-                        response = g4f.ChatCompletion.create(model=model, provider=getattr(g4f.Provider,p['provider']),stream=streaming,
-                                         messages=messages)
-                        provider = p['provider']
-                        break
-                else:
-                    continue
-                break
-            else:
-                response = g4f.ChatCompletion.create(model=model, provider=getattr(g4f.Provider,provider),stream=streaming,
+    while 'curl_cffi.requests.errors.RequestsError' in response:
+        random.shuffle(r_j)
+        for p in r_j:
+            for m in p['model']:
+                if model in m and p[model]['status'] == 'Active':
+                    if getattr(g4f.Provider,p['provider']).supports_stream != streaming:
+                        streaming = False
+                    response = g4f.ChatCompletion.create(model=model, provider=getattr(g4f.Provider,p['provider']),stream=streaming,
                                      messages=messages)
-
+                    provider = p['provider']
+                    break
+            else:
+                continue
+            break
+                
+    if not streaming:
         completion_timestamp = int(time.time())
         completion_id = ''.join(random.choices(
             'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789', k=28))
@@ -95,7 +93,7 @@ def chat_completions():
                 'created': completion_timestamp,
                 'model': model,
                 'provider':provider,
-                'supports_stream':provider.supports_stream,
+                'supports_stream':getattr(g4f.Provider,provider).supports_stream,
                 'choices': [
                     {
                         'delta': {
