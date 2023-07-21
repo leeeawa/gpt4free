@@ -83,8 +83,6 @@ def chat_completions():
     print(response)
     def stream():
         nonlocal response
-        if not next(response):
-            response = provider + 'is not working.'
         for token in response:
             completion_timestamp = int(time.time())
             completion_id = ''.join(random.choices(
