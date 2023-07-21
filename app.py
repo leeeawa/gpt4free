@@ -26,6 +26,7 @@ def chat_completions():
                 if model in m and m[model]['status'] == 'Active':
                     response = g4f.ChatCompletion.create(model=model, provider=getattr(g4f.Provider,p['provider']),stream=streaming,
                                      messages=messages)
+                    provider = p['provider']
                     break
             else:
                 continue
@@ -42,6 +43,7 @@ def chat_completions():
                     if model in m and p[model]['status'] == 'Active':
                         response = g4f.ChatCompletion.create(model=model, provider=getattr(g4f.Provider,p['provider']),stream=streaming,
                                          messages=messages)
+                        provider = p['provider']
                         break
                 else:
                     continue
@@ -59,6 +61,7 @@ def chat_completions():
             'object': 'chat.completion',
             'created': completion_timestamp,
             'model': model,
+            'provider':provider
             'usage': {
                 'prompt_tokens': len(messages),
                 'completion_tokens': len(response),
@@ -86,6 +89,7 @@ def chat_completions():
                 'object': 'chat.completion.chunk',
                 'created': completion_timestamp,
                 'model': model,
+                'provider':provider,
                 'choices': [
                     {
                         'delta': {
