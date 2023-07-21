@@ -102,9 +102,6 @@ def chat_completions():
                 'id': f'chatcmpl-{completion_id}',
                 'object': 'chat.completion.chunk',
                 'created': completion_timestamp,
-                'model': model,
-                'provider':provider_name,
-                'supports_stream':getattr(g4f.Provider,provider_name).supports_stream,
                 'choices': [
                     {
                         'delta': {
