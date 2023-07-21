@@ -115,10 +115,12 @@ def chat_completions():
                     }
                 ]
             }
-
+            print(token)
+            print(completion_data)
+            print('data: %s\n\n' % json.dumps(completion_data, separators=(',' ':')))
             yield 'data: %s\n\n' % json.dumps(completion_data, separators=(',' ':'))
             time.sleep(0.1)
-    print('===Start Streaming...===')
+    print('===Start Streaming===')
     return app.response_class(stream(), mimetype='text/event-stream')
     
 @app.route("/v1/dashboard/billing/subscription")
