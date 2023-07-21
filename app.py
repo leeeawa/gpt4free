@@ -61,7 +61,7 @@ def chat_completions():
             'object': 'chat.completion',
             'created': completion_timestamp,
             'model': model,
-            'provider':provider
+            'provider':provider,
             'usage': {
                 'prompt_tokens': len(messages),
                 'completion_tokens': len(response),
