@@ -20,37 +20,43 @@ def chat_completions():
     provider = request.json.get('provider', False)
     if not provider:
         r = requests.get('https://gpt.lemonsoftware.eu.org/v1/status')
-        r_j = r.json()['data']
-        random.shuffle(r_j)
-        for p in r_j:
-            for m in p['model']:
-                if model in m and m[model]['status'] == 'Active':
-                    if getattr(g4f.Provider,p['provider']).supports_stream != streaming:
-                        streaming = False
-                    response = g4f.ChatCompletion.create(model=model, provider=getattr(g4f.Provider,p['provider']),stream=streaming,
+        data = r.json()['data']
+        random.shuffle(data)
+        for provider_info in data:
+            for model_info in provider_info['model']:
+                if model in model_info and model_info[model]['status'] == 'Active':
+                    if getattr(g4f.Provider,provider_info['provider']).supports_stream != streaming_:
+                      streaming = False
+                    else:
+                      streaming = True
+                    response = g4f.ChatCompletion.create(model=model, provider=getattr(g4f.Provider,provider_info['provider']),stream=streaming,
                                      messages=messages)
-                    provider = p['provider']
-                    print(provider)
+                    provider_name = provider_info['provider']
+                    print(provider_name)
                     break
             else:
                 continue
             break
     else:
-        if getattr(g4f.Provider,p['provider']).supports_stream != streaming:
-                        streaming = False
+        if getattr(g4f.Provider,provider).supports_stream != streaming_:
+          streaming = False
+        else:
+          streaming = True
         response = g4f.ChatCompletion.create(model=model, provider=getattr(g4f.Provider,provider),stream=streaming,
                                      messages=messages)
     while 'curl_cffi.requests.errors.RequestsError' in response:
-        random.shuffle(r_j)
-        for p in r_j:
-            for m in p['model']:
-                if model in m and p[model]['status'] == 'Active':
-                    if getattr(g4f.Provider,p['provider']).supports_stream != streaming:
-                        streaming = False
-                    response = g4f.ChatCompletion.create(model=model, provider=getattr(g4f.Provider,p['provider']),stream=streaming,
+        random.shuffle(data)
+        for provider_info in data:
+            for model_info in provider_info['model']:
+                if model in model_info and model_info[model]['status'] == 'Active':
+                    if getattr(g4f.Provider,provider_info['provider']).supports_stream != streaming_:
+                      streaming = False
+                    else:
+                      streaming = True
+                    response = g4f.ChatCompletion.create(model=model, provider=getattr(g4f.Provider,provider_info['provider']),stream=streaming,
                                      messages=messages)
-                    provider = p['provider']
-                    print(provider)
+                    provider_name = provider_info['provider']
+                    print(provider_name)
                     break
             else:
                 continue
