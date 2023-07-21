@@ -24,7 +24,7 @@ def chat_completions():
         for p in r_j:
             for m in p['model']:
                 if model in m and m[model]['status'] == 'Active':
-                    if getattr(g4f.Provider,p['provider']).support_stream != streaming:
+                    if getattr(g4f.Provider,p['provider']).supports_stream != streaming:
                         streaming = False
                     response = g4f.ChatCompletion.create(model=model, provider=getattr(g4f.Provider,p['provider']),stream=streaming,
                                      messages=messages)
@@ -43,7 +43,7 @@ def chat_completions():
             for p in r_j:
                 for m in p['model']:
                     if model in m and p[model]['status'] == 'Active':
-                        if getattr(g4f.Provider,p['provider']).support_stream != streaming:
+                        if getattr(g4f.Provider,p['provider']).supports_stream != streaming:
                             streaming = False
                         response = g4f.ChatCompletion.create(model=model, provider=getattr(g4f.Provider,p['provider']),stream=streaming,
                                          messages=messages)
@@ -66,6 +66,7 @@ def chat_completions():
             'created': completion_timestamp,
             'model': model,
             'provider':provider,
+            'supports_stream':provider.supports_stream,
             'usage': {
                 'prompt_tokens': len(messages),
                 'completion_tokens': len(response),
@@ -94,6 +95,7 @@ def chat_completions():
                 'created': completion_timestamp,
                 'model': model,
                 'provider':provider,
+                'supports_stream':provider.supports_stream,
                 'choices': [
                     {
                         'delta': {
