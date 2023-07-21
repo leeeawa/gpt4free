@@ -14,6 +14,7 @@ CORS(app)
 @app.route("/v1/completions", methods=['POST'])
 def chat_completions():
     streaming = request.json.get('stream', False)
+    streaming_ = request.json.get('stream', False)
     model = request.json.get('model', 'gpt-3.5-turbo')
     messages = request.json.get('messages')
     provider = request.json.get('provider', False)
@@ -53,7 +54,7 @@ def chat_completions():
                 continue
             break
                 
-    if not streaming:
+    if not streaming_:
         completion_timestamp = int(time.time())
         completion_id = ''.join(random.choices(
             'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789', k=28))
