@@ -80,7 +80,7 @@ def chat_completions():
                 'index': 0
             }]
         }
-print(response)
+    print(response)
     def stream():
         nonlocal response
         if not response:
