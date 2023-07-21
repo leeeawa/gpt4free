@@ -64,7 +64,7 @@ def chat_completions():
             'created': completion_timestamp,
             'model': model,
             'provider':provider,
-            'supports_stream':provider.supports_stream,
+            'supports_stream':getattr(g4f.Provider,provider).supports_stream,
             'usage': {
                 'prompt_tokens': len(messages),
                 'completion_tokens': len(response),
