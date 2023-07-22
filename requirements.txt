@@ -3,7 +3,6 @@ pycryptodome
 curl_cffi
 aiohttp
 certifi
-Providers
 browser_cookie3
 websockets
 pyexecjs
